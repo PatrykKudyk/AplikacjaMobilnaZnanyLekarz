@@ -7,4 +7,5 @@
     <string name="log_in">Zaloguj</string>
     <string name="sheduled_visits">Umówione Wizyty</string>
     <string name="log_out">Wyloguj</string>
+    <string name="back">Wróć</string>
 </resources>
