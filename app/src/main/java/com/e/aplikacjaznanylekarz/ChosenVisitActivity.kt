@@ -9,4 +9,8 @@ class ChosenVisitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chosen_visit)
     }
+
+    override fun onBackPressed() {
+
+    }
 }
