@@ -1,9 +1,10 @@
-package com.e.aplikacjaznanylekarz
+package com.e.aplikacjaznanylekarz.Activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.e.aplikacjaznanylekarz.R
 
 class MainActivity : AppCompatActivity() {
 
