@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.Button
 import android.widget.TextView
-import com.e.aplikacjaznanylekarz.Models.Appointment
-import com.e.aplikacjaznanylekarz.Models.LoginResponse
-import com.e.aplikacjaznanylekarz.Models.Message
-import com.e.aplikacjaznanylekarz.Models.Patient
+import com.e.aplikacjaznanylekarz.Models.*
 import com.e.aplikacjaznanylekarz.MyApp
 import com.e.aplikacjaznanylekarz.R
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_visit_list.*
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import java.io.IOException
 
 class VisitListActivity : AppCompatActivity() {
@@ -32,7 +28,7 @@ class VisitListActivity : AppCompatActivity() {
 
         var buttonList: ArrayList<Button> = ArrayList()
 
-        var appointmentList = getAppointmentsList()
+        var appointmentList = getAppointmentsList(loginResponse.patient.token)
 
         if(appointmentList.size == 0){
             val tv = TextView(this)
@@ -45,8 +41,8 @@ class VisitListActivity : AppCompatActivity() {
 
             for(appointment in appointmentList){
                 val btn = Button(this)
-                btn.text = appointment.date.toString()
-                btn.id = appointment.id!!.toInt()
+                btn.text = appointment.doctorDto.specializationDto + "  " + appointment.dateDto
+                btn.id = appointment.dtoId
                 buttonList.add(btn)
             }
 
@@ -67,10 +63,9 @@ class VisitListActivity : AppCompatActivity() {
         }
     }
 
-    private fun getAppointmentsList(): ArrayList<Appointment>{
-        var appointmentList = ArrayList<Appointment>()
+    private fun getAppointmentsList(token: String): Array<AppointmentDto>{
 
-        fetchAppointments()
+        fetchAppointments(token)
 
         while(!MyApp.isAppointmentListJsonReceived){
             Thread.sleep(100)
@@ -79,14 +74,14 @@ class VisitListActivity : AppCompatActivity() {
         return MyApp.appoinmentList
     }
 
-    private fun fetchAppointments(){
+    private fun fetchAppointments(token: String) {
 
         val url = "http://onlinedocapi.eu-central-1.elasticbeanstalk.com//api/appointments"
 
-        val request = Request.Builder().url(url).build()
+        val request = Request.Builder().url(url).addHeader("Authorization",
+            "Bearer " + token).build()
 
         val client = OkHttpClient()
-
 
         val body = client.newCall(request).enqueue(object: Callback {
             override fun onResponse(call: Call, response: Response) {
@@ -94,11 +89,10 @@ class VisitListActivity : AppCompatActivity() {
 
                 val gson = GsonBuilder().create()
 
-                val appointmentList = gson.fromJson(body, AppointmentList::class.java)
+                val appointmentList = gson.fromJson(body, Array<AppointmentDto>::class.java)
 
-                MyApp.appoinmentList = appointmentList.appointments
+                MyApp.appoinmentList = appointmentList
                 MyApp.isAppointmentListJsonReceived = true
-                println(appointmentList)
             }
 
             override fun onFailure(call: Call, e: IOException) {
@@ -113,4 +107,3 @@ class VisitListActivity : AppCompatActivity() {
     }
 }
 
-class AppointmentList(var appointments: ArrayList<Appointment>)

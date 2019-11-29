@@ -8,95 +8,135 @@
         tools:context=".Activities.ChosenVisitActivity">
 
     <TextView
-            android:text="FIzjoterapia - 12:00-2/05/2019"
+            android:id="@+id/appointmentTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            tools:layout_editor_absoluteX="47dp" android:id="@+id/titleTextView" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.057"
-            android:textSize="26dp" android:gravity="center" android:textStyle="bold"/>
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="425dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="0.466"
-            android:id="@+id/scrollView3">
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="@string/loading"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.057" />
+
+    <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="425dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appointmentTitleTextView">
+
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-        >
+                android:layout_height="match_parent">
 
             <TextView
-                    android:text="Imie i Nazwisko Lekarza"
+                    android:id="@+id/doctorNameTextView"
                     android:layout_width="221dp"
                     android:layout_height="51dp"
-                    android:id="@+id/doctorNameTextView"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" android:textSize="20dp" android:gravity="center"
-                    android:textStyle="bold" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.502"/>
-            <TextView
-                    android:text="12:00  -  2/05/2019"
-                    android:layout_width="296dp"
-                    android:layout_height="57dp"
-                    android:id="@+id/dateTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/doctorNameTextView"
-                    android:layout_marginTop="32dp" android:textSize="30dp" android:gravity="center"
-                    android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            />
-            <TextView
-                    android:text="Ul. Papieska 21/37 Wrocław"
-                    android:layout_width="328dp"
-                    android:layout_height="75dp" android:id="@+id/addressTextView"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/dateTextView" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp"
-                    android:textSize="24dp" android:gravity="center"/>
-            <TextView
-                    android:text="FIZJOTERAPIA"
-                    android:layout_width="221dp"
-                    android:layout_height="40dp" android:id="@+id/visitTypeTextView"
-                    android:layout_marginTop="48dp"
-                    app:layout_constraintTop_toBottomOf="@+id/addressTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="28dp" android:textSize="20dp" android:gravity="center"/>
-            <TextView
-                    android:text="130 zł"
-                    android:layout_width="93dp"
-                    android:layout_height="40dp" android:id="@+id/priceTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/addressTextView"
-                    app:layout_constraintStart_toEndOf="@+id/visitTypeTextView" android:layout_marginStart="8dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                    android:layout_marginTop="48dp" app:layout_constraintHorizontal_bias="0.312"
-                    android:textSize="20dp" android:gravity="center"/>
-            <TextView
-                    android:text="624 325 092"
-                    android:layout_width="215dp"
-                    android:layout_height="46dp" android:id="@+id/phoneNumberTextView"
-                    android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/visitTypeTextView"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.815"
-                    android:textSize="20dp" android:gravity="right"/>
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                    android:text="adresEmail@gmail.com"
+                    android:id="@+id/dateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/doctorNameTextView" />
+
+            <TextView
+                    android:id="@+id/addressTextView"
+                    android:layout_width="328dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+            <TextView
+                    android:id="@+id/visitTypeTextView"
+                    android:layout_width="221dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="48dp"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+            <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="93dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.312"
+                    app:layout_constraintStart_toEndOf="@+id/visitTypeTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+            <TextView
+                    android:id="@+id/phoneNumberTextView"
+                    android:layout_width="215dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="right"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.815"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/visitTypeTextView" />
+
+            <TextView
+                    android:id="@+id/emailTextView"
                     android:layout_width="276dp"
                     android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextView"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.72"
+                    android:layout_marginEnd="8dp"
                     android:gravity="right"
-                    android:id="@+id/emailTextView"/>
+                    android:text="adresEmail@gmail.com"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.72"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextView" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
+
     <Button
             android:text="@string/back"
             android:layout_width="118dp"
