@@ -5,7 +5,7 @@
     <string name="email">E-mail</string>
     <string name="password">Hasło</string>
     <string name="log_in">Zaloguj</string>
-    <string name="sheduled_visits">Umówione Wizyty</string>
+    <string name="sheduled_visits">Poniżej znajdują się twoje umówione wizyty</string>
     <string name="log_out">Wyloguj</string>
     <string name="back">Wróć</string>
 </resources>
