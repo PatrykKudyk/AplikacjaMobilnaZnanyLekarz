@@ -41,7 +41,16 @@ class VisitListActivity : AppCompatActivity() {
 
             for(appointment in appointmentList){
                 val btn = Button(this)
-                btn.text = appointment.doctorDto.specializationDto + "  " + appointment.dateDto
+
+                val sep1 = "-"
+                val sep2 = "T"
+                val sep3 = ":"
+
+                val parts = appointment.dateDto.split(sep1, sep2, sep3)
+
+                val date = parts[3] + ":" + parts[4] + "   " + parts[2] + "/" + parts[1] +
+                        "/" + parts[0]
+                btn.text = appointment.doctorDto.specializationDto + "  " +  date
                 btn.id = appointment.dtoId
                 buttonList.add(btn)
             }

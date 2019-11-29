@@ -28,8 +28,8 @@
 
     <ScrollView
             android:id="@+id/scrollView3"
-            android:layout_width="match_parent"
-            android:layout_height="425dp"
+            android:layout_width="384dp"
+            android:layout_height="362dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +129,6 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="8dp"
                     android:gravity="right"
-                    android:text="adresEmail@gmail.com"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.72"
                     app:layout_constraintStart_toStartOf="parent"

@@ -74,6 +74,7 @@ class ChosenVisitActivity : AppCompatActivity() {
                             appointment.first().locationDto.cityDto
                     visitTypeTextView.text = appointment.first().doctorDto.specializationDto
                     phoneNumberTextView.text = appointment.first().doctorDto.phoneNumberDto
+                    emailTextView.text = appointment.first().doctorDto.emailDto
                 }
 
             }
